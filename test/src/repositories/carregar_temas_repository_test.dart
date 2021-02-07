@@ -1,5 +1,6 @@
 import 'package:carregar_temas_package/carregar_temas_package.dart';
 import 'package:carregar_temas_package/src/repositories/carregar_temas_repository.dart';
+import 'package:carregar_temas_package/src/usecases/carregar_temas_usecase.dart';
 import 'package:carregar_temas_package/src/utilitarios/tempo_execucao.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
