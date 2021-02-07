@@ -1,4 +1,5 @@
 import 'package:carregar_temas_package/carregar_temas_package.dart';
+import 'package:carregar_temas_package/src/usecases/carregar_temas_usecase.dart';
 import 'package:carregar_temas_package/src/utilitarios/erros_carregar_temas.dart';
 import 'package:carregar_temas_package/src/utilitarios/tempo_execucao.dart';
 import 'package:flutter_test/flutter_test.dart';

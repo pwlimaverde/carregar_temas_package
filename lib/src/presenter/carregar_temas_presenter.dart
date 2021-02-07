@@ -1,8 +1,9 @@
-import 'package:carregar_temas_package/src/repositories/carregar_temas_repository.dart';
-import 'package:carregar_temas_package/src/utilitarios/tempo_execucao.dart';
 import 'package:retorno_sucesso_ou_erro_package/retorno_sucesso_ou_erro_package.dart';
 
 import '../../carregar_temas_package.dart';
+import '../repositories/carregar_temas_repository.dart';
+import '../usecases/carregar_temas_usecase.dart';
+import '../utilitarios/tempo_execucao.dart';
 
 class CarregarTemasPresenter {
   final Datasource<Stream<ResultadoTheme>, NoParams> datasource;
