@@ -1,7 +1,5 @@
 library carregar_temas_package;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/usecases/carregar_temas_usecase.dart';
+export 'src/usecases/entities/dados_theme.dart';
+export 'src/usecases/entities/resultado_theme.dart';
