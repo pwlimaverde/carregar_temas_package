@@ -49,6 +49,7 @@ void main() {
 
   test('Deve ErrorCarregarTemas com Erro ao carregar os dados tema Cod.02-1',
       () async {
+    tempo.iniciar();
     when(datasource).calls(#call).thenThrow(Exception());
     final result = await CarregarTemasPresenter(
             datasource: datasource, mostrarTempoExecucao: true)
