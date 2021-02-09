@@ -1,6 +1,5 @@
 import 'package:carregar_temas_package/carregar_temas_package.dart';
 import 'package:carregar_temas_package/src/presenter/carregar_temas_presenter.dart';
-import 'package:carregar_temas_package/src/utilitarios/tempo_execucao.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:retorno_sucesso_ou_erro_package/retorno_sucesso_ou_erro_package.dart';
@@ -11,15 +10,12 @@ class FairebaseThemeDatasource extends Mock
 
 void main() {
   late Datasource<Stream<ResultadoTheme>, NoParams> datasource;
-  late TempoExecucao tempo;
 
   setUp(() {
-    tempo = TempoExecucao();
     datasource = FairebaseThemeDatasource();
   });
 
   test('Deve retornar um sucesso com true', () async {
-    tempo.iniciar();
     final testeFire = BehaviorSubject<ResultadoTheme>();
     testeFire.add(
       ResultadoTheme(
@@ -36,7 +32,6 @@ void main() {
           sucesso: (value) => value.resultado,
           erro: (value) => value.erro,
         ).first}");
-    tempo.terminar();
     expect(result, isA<SucessoRetorno<Stream<ResultadoTheme>>>());
     expect(
         result.fold(
@@ -57,7 +52,6 @@ void main() {
       sucesso: (value) => value.resultado,
       erro: (value) => value.erro,
     )}");
-    tempo.terminar();
     expect(result, isA<ErroRetorno<Stream<ResultadoTheme>>>());
   });
 }

@@ -1,3 +1,7 @@
+## 1.0.1
+
+* TODO: Atualização da dependencia ResultadoOuErro release 1.1.0
+
 ## 1.0.0
 
 * TODO: Versão estável com usecase, repositorio e presenter ok

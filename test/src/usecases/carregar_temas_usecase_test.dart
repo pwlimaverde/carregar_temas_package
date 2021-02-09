@@ -1,7 +1,6 @@
 import 'package:carregar_temas_package/carregar_temas_package.dart';
 import 'package:carregar_temas_package/src/usecases/carregar_temas_usecase.dart';
 import 'package:carregar_temas_package/src/utilitarios/erros_carregar_temas.dart';
-import 'package:carregar_temas_package/src/utilitarios/tempo_execucao.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:retorno_sucesso_ou_erro_package/retorno_sucesso_ou_erro_package.dart';
