@@ -1,7 +1,6 @@
 import 'package:carregar_temas_package/carregar_temas_package.dart';
 import 'package:carregar_temas_package/src/repositories/carregar_temas_repository.dart';
 import 'package:carregar_temas_package/src/usecases/carregar_temas_usecase.dart';
-import 'package:carregar_temas_package/src/utilitarios/tempo_execucao.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:retorno_sucesso_ou_erro_package/retorno_sucesso_ou_erro_package.dart';
@@ -40,6 +39,8 @@ void main() {
           erro: (value) => value.erro,
         ).first}");
     tempo.terminar();
+    print(
+        "Tempo de Execução do ChecarConeccaoPresenter: ${tempo.calcularExecucao()}ms");
     expect(result, isA<SucessoRetorno<Stream<ResultadoTheme>>>());
     expect(
         result.fold(
@@ -68,6 +69,8 @@ void main() {
       erro: (value) => value.erro,
     )}");
     tempo.terminar();
+    print(
+        "Tempo de Execução do ChecarConeccaoPresenter: ${tempo.calcularExecucao()}ms");
     expect(result, isA<ErroRetorno<Stream<ResultadoTheme>>>());
     testeFire.close();
   });
