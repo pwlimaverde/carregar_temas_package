@@ -6,19 +6,24 @@ import '../usecases/carregar_temas_usecase.dart';
 
 class CarregarTemasPresenter {
   final Datasource<Stream<ResultadoTheme>, NoParams> datasource;
-  final bool? mostrarTempoExecucao;
+  final bool mostrarTempoExecucao;
 
-  CarregarTemasPresenter({required this.datasource, this.mostrarTempoExecucao});
+  CarregarTemasPresenter({
+    required this.datasource,
+    required this.mostrarTempoExecucao,
+  });
 
   Future<RetornoSucessoOuErro<Stream<ResultadoTheme>>> carregarTemas() async {
     TempoExecucao tempo = TempoExecucao();
-    tempo.iniciar();
+    if (mostrarTempoExecucao) {
+      tempo.iniciar();
+    }
     final resultado = await CarregarTemasUsecase(
       repositorio: CarregarTemasRepositorio(
         datasource: datasource,
       ),
     )(parametros: NoParams());
-    if (mostrarTempoExecucao ?? false) {
+    if (mostrarTempoExecucao) {
       tempo.terminar();
       print(
           "Tempo de Execução do CarregarTemasPresenter: ${tempo.calcularExecucao()}ms");
