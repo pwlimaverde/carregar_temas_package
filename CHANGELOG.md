@@ -1,3 +1,7 @@
+## 1.0.2
+
+* TODO: Correção do tempo de execução no presenter
+
 ## 1.0.1
 
 * TODO: Atualização da dependencia ResultadoOuErro release 1.1.0
