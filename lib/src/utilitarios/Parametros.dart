@@ -1,3 +1,19 @@
+enum KeyCorTema {
+  primary,
+  accent,
+}
+
+extension KeyCorTemaExt on KeyCorTema {
+  String get descricao {
+    switch (this) {
+      case KeyCorTema.primary:
+        return "primary";
+      case KeyCorTema.accent:
+        return "accent";
+    }
+  }
+}
+
 class ParametrosAtualizarCorTemas {
   final Map<String, int> cor;
   final KeyCorTema key;
@@ -8,9 +24,4 @@ class ParametrosAtualizarCorTemas {
     required this.key,
     required this.user,
   });
-}
-
-enum KeyCorTema {
-  primary,
-  accent,
 }
