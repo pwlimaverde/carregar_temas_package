@@ -1,3 +1,7 @@
+## 1.1.1
+
+* TODO: Conversão das cores Primary e Accent dos parametros para um enum.
+
 ## 1.1.0
 
 * TODO: Nova Feature de atualização de cor do tema.

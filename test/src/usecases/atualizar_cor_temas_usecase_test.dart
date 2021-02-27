@@ -31,7 +31,7 @@ void main() {
           "g": 60,
           "b": 60,
         },
-        key: "primary",
+        key: KeyCorTema.primary,
         user: "uidfirebase",
       ),
     );
@@ -64,7 +64,7 @@ void main() {
           "g": 60,
           "b": 60,
         },
-        key: "primary",
+        key: KeyCorTema.primary,
         user: "uidfirebase",
       ),
     );
@@ -96,7 +96,7 @@ void main() {
           "g": 60,
           "b": 60,
         },
-        key: "primary",
+        key: KeyCorTema.primary,
         user: "uidfirebase",
       ),
     );
