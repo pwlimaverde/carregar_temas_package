@@ -51,7 +51,7 @@ void main() {
     testeFire.close();
   });
 
-  test('Deve ErrorCarregarTemas com Erro ao carregar os dados tema Cod.02-1',
+  test('Deve ErroCarregarTemas com Erro ao carregar os dados tema Cod.02-1',
       () async {
     tempo.iniciar();
     final testeFire = BehaviorSubject<ResultadoTheme>();

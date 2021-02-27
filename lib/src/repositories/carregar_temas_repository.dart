@@ -14,7 +14,7 @@ class CarregarTemasRepositorio
       {required NoParams parametros}) async {
     final resultado = await retornoDatasource(
       datasource: datasource,
-      erro: ErrorCarregarTemas(
+      erro: ErroCarregarTemas(
         mensagem: "Erro ao carregar os dados tema Cod.02-1",
       ),
       parametros: NoParams(),

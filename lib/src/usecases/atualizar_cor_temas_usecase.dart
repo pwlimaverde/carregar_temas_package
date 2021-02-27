@@ -1,3 +1,4 @@
+import 'package:carregar_temas_package/src/utilitarios/erros_carregar_temas.dart';
 import 'package:retorno_sucesso_ou_erro_package/retorno_sucesso_ou_erro_package.dart';
 
 import '../utilitarios/Parametros.dart';
@@ -14,15 +15,15 @@ class AtualizarCorTemasUsecase
     try {
       final resultado = await retornoRepositorio(
         repositorio: repositorio,
-        erro: ErroRecuperarSenhaEmail(
-            mensagem: "Erro ao recuperar a senha pelo e-mail Cod.01-2"),
+        erro: ErroAtualizarCorTemas(
+            mensagem: "Erro ao atualizar a cor do tema Cod.01-2"),
         parametros: parametros,
       );
       if (resultado is SucessoRetorno<bool>) {
         if (!resultado.resultado) {
           return ErroRetorno(
-            erro: ErroRecuperarSenhaEmail(
-              mensagem: "Erro ao recuperar a senha pelo e-mail Cod.01-1",
+            erro: ErroAtualizarCorTemas(
+              mensagem: "Erro ao atualizar a cor do tema Cod.01-1",
             ),
           );
         }
@@ -30,9 +31,9 @@ class AtualizarCorTemasUsecase
       return resultado;
     } catch (e) {
       return ErroRetorno(
-        erro: ErroCarregarUsuario(
+        erro: ErroAtualizarCorTemas(
           mensagem:
-              "${e.toString()} - Erro ao recuperar a senha pelo e-mail Cod.01-3",
+              "${e.toString()} - Erro ao atualizar a cor do tema Cod.01-3",
         ),
       );
     }
