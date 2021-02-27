@@ -1,18 +1,22 @@
+## 1.1.0
+
+* TODO: Nova Feature de atualização de cor do tema.
+
 ## 1.0.2
 
-* TODO: Correção do tempo de execução no presenter
+* TODO: Correção do tempo de execução no presenter.
 
 ## 1.0.1
 
-* TODO: Atualização da dependencia ResultadoOuErro release 1.1.0
+* TODO: Atualização da dependencia ResultadoOuErro release 1.1.0.
 
 ## 1.0.0
 
-* TODO: Versão estável com usecase, repositorio e presenter ok
+* TODO: Versão estável com usecase, repositorio e presenter ok.
 
 ## 0.1.0
 
-* TODO: Configuração inicial e inicio do versionamento
+* TODO: Configuração inicial e inicio do versionamento.
 
 ## 0.0.1
 
