@@ -1,3 +1,7 @@
+## 1.1.2
+
+* TODO: Rerfator enum parametros KeyCorTema.
+
 ## 1.1.1
 
 * TODO: Conversão das cores Primary e Accent dos parametros para um enum.
