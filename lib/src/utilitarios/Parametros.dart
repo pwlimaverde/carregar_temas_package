@@ -1,6 +1,6 @@
 class ParametrosAtualizarCorTemas {
   final Map<String, int> cor;
-  final String key;
+  final KeyCorTema key;
   final String user;
 
   ParametrosAtualizarCorTemas({
@@ -8,4 +8,9 @@ class ParametrosAtualizarCorTemas {
     required this.key,
     required this.user,
   });
+}
+
+enum KeyCorTema {
+  primary,
+  accent,
 }
