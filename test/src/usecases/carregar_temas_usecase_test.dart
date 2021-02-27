@@ -6,7 +6,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:retorno_sucesso_ou_erro_package/retorno_sucesso_ou_erro_package.dart';
 import 'package:rxdart/rxdart.dart';
 
-class CarregarTemasRepositorio extends Mock
+class CarregarTemasRepositorioMock extends Mock
     implements Repositorio<Stream<ResultadoTheme>, NoParams> {}
 
 void main() {
@@ -16,7 +16,7 @@ void main() {
 
   setUp(() {
     tempo = TempoExecucao();
-    repositorio = CarregarTemasRepositorio();
+    repositorio = CarregarTemasRepositorioMock();
     carregarTemasUsecase = CarregarTemasUsecase(repositorio: repositorio);
   });
 
@@ -51,7 +51,7 @@ void main() {
   });
 
   test(
-      'Deve retornar um ErrorCarregarTemas com Erro ao carregar os dados tema Cod.01-1',
+      'Deve retornar um ErroCarregarTemas com Erro ao carregar os dados tema Cod.01-1',
       () async {
     tempo.iniciar();
     final testeFire = BehaviorSubject<ResultadoTheme>();
@@ -65,7 +65,7 @@ void main() {
     when(repositorio).calls(#call).thenAnswer(
           (_) => Future.value(
             ErroRetorno<Stream<ResultadoTheme>>(
-              erro: ErrorCarregarTemas(
+              erro: ErroCarregarTemas(
                 mensagem: "Erro ao carregar os dados tema Cod.01-1",
               ),
             ),
@@ -84,7 +84,7 @@ void main() {
   });
 
   test(
-      'Deve retornar um ErrorCarregarTemas com Erro ao carregar os dados tema Cod.01-1',
+      'Deve retornar um ErroCarregarTemas com Erro ao carregar os dados tema Cod.01-1',
       () async {
     tempo.iniciar();
     final testeFire = BehaviorSubject<ResultadoTheme>();

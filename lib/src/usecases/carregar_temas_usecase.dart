@@ -14,14 +14,14 @@ class CarregarTemasUsecase extends UseCase<Stream<ResultadoTheme>, NoParams> {
     try {
       final resultado = await retornoRepositorio(
         repositorio: repositorio,
-        erro: ErrorCarregarTemas(
+        erro: ErroCarregarTemas(
             mensagem: "Erro ao carregar os dados tema Cod.01-1"),
         parametros: NoParams(),
       );
       return resultado;
     } catch (e) {
       return ErroRetorno(
-        erro: ErrorCarregarTemas(
+        erro: ErroCarregarTemas(
           mensagem:
               "${e.toString()} - Erro ao carregar os dados do thema Cod.01-2",
         ),
