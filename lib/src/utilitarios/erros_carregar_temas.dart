@@ -6,7 +6,7 @@ class ErroCarregarTemas implements AppErro {
 
   @override
   String toString() {
-    return "ErrorConeccao - $mensagem";
+    return "ErroCarregarTemas - $mensagem";
   }
 }
 
@@ -16,6 +16,6 @@ class ErroAtualizarCorTemas implements AppErro {
 
   @override
   String toString() {
-    return "ErrorConeccao - $mensagem";
+    return "ErroAtualizarCorTemas - $mensagem";
   }
 }
