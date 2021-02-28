@@ -5,14 +5,14 @@ import 'package:mocktail/mocktail.dart';
 import 'package:retorno_sucesso_ou_erro_package/retorno_sucesso_ou_erro_package.dart';
 import 'package:rxdart/rxdart.dart';
 
-class FairebaseThemeDatasource extends Mock
+class FairebaseThemeDatasourceMock extends Mock
     implements Datasource<Stream<ResultadoTheme>, NoParams> {}
 
 void main() {
   late Datasource<Stream<ResultadoTheme>, NoParams> datasource;
 
   setUp(() {
-    datasource = FairebaseThemeDatasource();
+    datasource = FairebaseThemeDatasourceMock();
   });
 
   test('Deve retornar um sucesso com true', () async {
