@@ -1,3 +1,7 @@
+## 1.2.0
+
+* TODO: Nova Feature carregar configuração do tema.
+
 ## 1.1.2
 
 * TODO: Rerfator enum parametros KeyCorTema.
