@@ -23,7 +23,7 @@ class CarregarTemasUsecase extends UseCase<Stream<ResultadoTheme>, NoParams> {
       return ErroRetorno(
         erro: ErroCarregarTemas(
           mensagem:
-              "${e.toString()} - Erro ao carregar os dados do thema Cod.01-2",
+              "${e.toString()} - Erro ao carregar os dados do tema Cod.01-2",
         ),
       );
     }
