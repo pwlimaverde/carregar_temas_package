@@ -40,7 +40,7 @@ void main() {
         ).first}");
     tempo.terminar();
     print(
-        "Tempo de Execução do ChecarConeccaoPresenter: ${tempo.calcularExecucao()}ms");
+        "Tempo de Execução do CarregarTemasUsecase: ${tempo.calcularExecucao()}ms");
     expect(result, isA<SucessoRetorno<Stream<ResultadoTheme>>>());
     expect(
         result.fold(
@@ -70,7 +70,7 @@ void main() {
     )}");
     tempo.terminar();
     print(
-        "Tempo de Execução do ChecarConeccaoPresenter: ${tempo.calcularExecucao()}ms");
+        "Tempo de Execução do CarregarTemasUsecase: ${tempo.calcularExecucao()}ms");
     expect(result, isA<ErroRetorno<Stream<ResultadoTheme>>>());
     testeFire.close();
   });
