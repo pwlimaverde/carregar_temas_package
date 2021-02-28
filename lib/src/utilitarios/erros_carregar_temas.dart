@@ -10,6 +10,16 @@ class ErroCarregarTemas implements AppErro {
   }
 }
 
+class ErroCarregarConfiguracaoTemas implements AppErro {
+  final String mensagem;
+  ErroCarregarConfiguracaoTemas({required this.mensagem});
+
+  @override
+  String toString() {
+    return "ErroCarregarTemas - $mensagem";
+  }
+}
+
 class ErroAtualizarCorTemas implements AppErro {
   final String mensagem;
   ErroAtualizarCorTemas({required this.mensagem});

@@ -1,0 +1,110 @@
+import 'package:carregar_temas_package/carregar_temas_package.dart';
+import 'package:carregar_temas_package/src/usecases/carregar_temas_usecase.dart';
+import 'package:carregar_temas_package/src/utilitarios/erros_carregar_temas.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:retorno_sucesso_ou_erro_package/retorno_sucesso_ou_erro_package.dart';
+import 'package:rxdart/rxdart.dart';
+
+class CarregarConfiguracaoTemasRepositorioMock extends Mock
+    implements Repositorio<ResultadoTheme, NoParams> {}
+
+void main() {
+  late Repositorio<ResultadoTheme, NoParams> repositorio;
+  late UseCase<ResultadoTheme, NoParams> carregarTemasUsecase;
+  late TempoExecucao tempo;
+
+  setUp(() {
+    tempo = TempoExecucao();
+    repositorio = CarregarConfiguracaoTemasRepositorioMock();
+    carregarTemasUsecase = CarregarTemasUsecase(repositorio: repositorio);
+  });
+
+  test('Deve retornar um sucesso com ResultadoTheme', () async {
+    tempo.iniciar();
+    final testeFire = BehaviorSubject<ResultadoTheme>();
+    testeFire.add(
+      ResultadoTheme(
+        accent: {"r": 58},
+        primary: {"r": 150},
+        user: "paulo",
+      ),
+    );
+    when(repositorio).calls(#call).thenAnswer((_) =>
+        Future.value(SucessoRetorno<ResultadoTheme>(resultado: testeFire)));
+    final result = await carregarTemasUsecase(parametros: NoParams());
+    print("teste result - ${await result.fold(
+          sucesso: (value) => value.resultado,
+          erro: (value) => value.erro,
+        ).first}");
+    tempo.terminar();
+    print(
+        "Tempo de Execução do ChecarConeccaoPresenter: ${tempo.calcularExecucao()}ms");
+    expect(result, isA<SucessoRetorno<ResultadoTheme>>());
+    expect(
+        result.fold(
+          sucesso: (value) => value.resultado,
+          erro: (value) => value.erro,
+        ),
+        isA<ResultadoTheme>());
+    testeFire.close();
+  });
+
+  test(
+      'Deve retornar um ErroCarregarTemas com Erro ao carregar os dados tema Cod.01-1',
+      () async {
+    tempo.iniciar();
+    final testeFire = BehaviorSubject<ResultadoTheme>();
+    testeFire.add(
+      ResultadoTheme(
+        accent: {"r": 58},
+        primary: {"r": 150},
+        user: "paulo",
+      ),
+    );
+    when(repositorio).calls(#call).thenAnswer(
+          (_) => Future.value(
+            ErroRetorno<ResultadoTheme>(
+              erro: ErroCarregarTemas(
+                mensagem: "Erro ao carregar os dados tema Cod.01-1",
+              ),
+            ),
+          ),
+        );
+    final result = await carregarTemasUsecase(parametros: NoParams());
+    print("teste result - ${await result.fold(
+      sucesso: (value) => value.resultado,
+      erro: (value) => value.erro,
+    )}");
+    tempo.terminar();
+    print(
+        "Tempo de Execução do ChecarConeccaoPresenter: ${tempo.calcularExecucao()}ms");
+    expect(result, isA<ErroRetorno<ResultadoTheme>>());
+    testeFire.close();
+  });
+
+  test(
+      'Deve retornar um ErroCarregarTemas com Erro ao carregar os dados tema Cod.01-1',
+      () async {
+    tempo.iniciar();
+    final testeFire = BehaviorSubject<ResultadoTheme>();
+    testeFire.add(
+      ResultadoTheme(
+        accent: {"r": 58},
+        primary: {"r": 150},
+        user: "paulo",
+      ),
+    );
+    when(repositorio).calls(#call).thenThrow(Exception());
+    final result = await carregarTemasUsecase(parametros: NoParams());
+    print("teste result - ${await result.fold(
+      sucesso: (value) => value.resultado,
+      erro: (value) => value.erro,
+    )}");
+    tempo.terminar();
+    print(
+        "Tempo de Execução do ChecarConeccaoPresenter: ${tempo.calcularExecucao()}ms");
+    expect(result, isA<ErroRetorno<ResultadoTheme>>());
+    testeFire.close();
+  });
+}
