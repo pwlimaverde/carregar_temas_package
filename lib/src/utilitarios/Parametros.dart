@@ -1,3 +1,5 @@
+import 'package:retorno_sucesso_ou_erro_package/retorno_sucesso_ou_erro_package.dart';
+
 enum KeyCorTema {
   primary,
   accent,
@@ -14,7 +16,7 @@ extension KeyCorTemaExt on KeyCorTema {
   }
 }
 
-class ParametrosAtualizarCorTemas {
+class ParametrosAtualizarCorTemas implements ParametrosRetornoResultado {
   final Map<String, int> cor;
   final KeyCorTema key;
   final String user;
@@ -24,4 +26,7 @@ class ParametrosAtualizarCorTemas {
     required this.key,
     required this.user,
   });
+
+  @override
+  String get mensagemErro => "Erro ao carregar os dados do tema";
 }
