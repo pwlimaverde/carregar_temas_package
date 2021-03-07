@@ -26,8 +26,9 @@ void main() {
     );
     when(datasource).calls(#call).thenAnswer((_) => Future.value(testeFire));
     final result = await CarregarTemasPresenter(
-            datasource: datasource, mostrarTempoExecucao: true)
-        .carregarTemas();
+      datasource: datasource,
+      mostrarTempoExecucao: true,
+    ).carregarTemas();
     print("teste result - ${await result.fold(
           sucesso: (value) => value.resultado,
           erro: (value) => value.erro,
