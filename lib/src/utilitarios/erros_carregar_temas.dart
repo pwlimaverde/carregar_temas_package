@@ -1,6 +1,6 @@
-import 'package:retorno_sucesso_ou_erro_package/retorno_sucesso_ou_erro_package.dart';
+import 'package:return_success_or_error/return_success_or_error.dart';
 
-class ErroCarregarTemas implements AppErro {
+class ErroCarregarTemas implements AppError {
   final String mensagem;
   ErroCarregarTemas({required this.mensagem});
 
@@ -10,7 +10,7 @@ class ErroCarregarTemas implements AppErro {
   }
 }
 
-class ErroCarregarConfiguracaoTemas implements AppErro {
+class ErroCarregarConfiguracaoTemas implements AppError {
   final String mensagem;
   ErroCarregarConfiguracaoTemas({required this.mensagem});
 
@@ -20,7 +20,7 @@ class ErroCarregarConfiguracaoTemas implements AppErro {
   }
 }
 
-class ErroAtualizarCorTemas implements AppErro {
+class ErroAtualizarCorTemas implements AppError {
   final String mensagem;
   ErroAtualizarCorTemas({required this.mensagem});
 
