@@ -2,7 +2,7 @@ import 'package:carregar_temas_package/src/presenter/atualizar_cor_temas_present
 import 'package:carregar_temas_package/src/utilitarios/Parametros.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:retorno_sucesso_ou_erro_package/retorno_sucesso_ou_erro_package.dart';
+import 'package:return_success_or_error/return_success_or_error.dart';
 
 class FairebaseAtualizarCorTemasDatasourceMock extends Mock
     implements Datasource<bool, ParametrosAtualizarCorTemas> {}
@@ -31,14 +31,14 @@ void main() {
       ),
     );
     print("teste result - ${await result.fold(
-      sucesso: (value) => value.resultado,
-      erro: (value) => value.erro,
+      success: (value) => value.result,
+      error: (value) => value.error,
     )}");
-    expect(result, isA<SucessoRetorno<bool>>());
+    expect(result, isA<SuccessReturn<bool>>());
     expect(
         result.fold(
-          sucesso: (value) => value.resultado,
-          erro: (value) => value.erro,
+          success: (value) => value.result,
+          error: (value) => value.error,
         ),
         equals(true));
   });
@@ -62,15 +62,15 @@ void main() {
       ),
     );
     print("teste result - ${await result.fold(
-      sucesso: (value) => value.resultado,
-      erro: (value) => value.erro,
+      success: (value) => value.result,
+      error: (value) => value.error,
     )}");
-    expect(result, isA<ErroRetorno<bool>>());
+    expect(result, isA<ErrorReturn<bool>>());
     expect(
         result.fold(
-          sucesso: (value) => value.resultado,
-          erro: (value) => value.erro,
+          success: (value) => value.result,
+          error: (value) => value.error,
         ),
-        isA<ErroRetornoResultado>());
+        isA<ErrorReturnResult>());
   });
 }

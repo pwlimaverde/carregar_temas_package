@@ -2,7 +2,7 @@ import 'package:carregar_temas_package/carregar_temas_package.dart';
 import 'package:carregar_temas_package/src/presenter/carregar_temas_presenter.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:retorno_sucesso_ou_erro_package/retorno_sucesso_ou_erro_package.dart';
+import 'package:return_success_or_error/return_success_or_error.dart';
 import 'package:rxdart/rxdart.dart';
 
 class FairebaseThemeDatasourceMock extends Mock
@@ -30,14 +30,14 @@ void main() {
       mostrarTempoExecucao: true,
     ).carregarTemas();
     print("teste result - ${await result.fold(
-          sucesso: (value) => value.resultado,
-          erro: (value) => value.erro,
+          success: (value) => value.result,
+          error: (value) => value.error,
         ).first}");
-    expect(result, isA<SucessoRetorno<Stream<ResultadoTheme>>>());
+    expect(result, isA<SuccessReturn<Stream<ResultadoTheme>>>());
     expect(
         result.fold(
-          sucesso: (value) => value.resultado,
-          erro: (value) => value.erro,
+          success: (value) => value.result,
+          error: (value) => value.error,
         ),
         isA<Stream<ResultadoTheme>>());
     testeFire.close();
@@ -50,9 +50,9 @@ void main() {
             datasource: datasource, mostrarTempoExecucao: true)
         .carregarTemas();
     print("teste result - ${await result.fold(
-      sucesso: (value) => value.resultado,
-      erro: (value) => value.erro,
+      success: (value) => value.result,
+      error: (value) => value.error,
     )}");
-    expect(result, isA<ErroRetorno<Stream<ResultadoTheme>>>());
+    expect(result, isA<ErrorReturn<Stream<ResultadoTheme>>>());
   });
 }
