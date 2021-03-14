@@ -1,9 +1,9 @@
-import 'package:carregar_temas_package/src/entities/resultado_theme.dart';
-import 'package:retorno_sucesso_ou_erro_package/retorno_sucesso_ou_erro_package.dart';
+import 'package:return_success_or_error/return_success_or_error.dart';
+
+import '../entities/resultado_theme.dart';
 
 class CarregarTemasPresenter {
-  final Datasource<Stream<ResultadoTheme>, ParametrosRetornoResultado>
-      datasource;
+  final Datasource<Stream<ResultadoTheme>, ParametersReturnResult> datasource;
   final bool mostrarTempoExecucao;
 
   CarregarTemasPresenter({
@@ -11,14 +11,14 @@ class CarregarTemasPresenter {
     required this.mostrarTempoExecucao,
   });
 
-  Future<RetornoSucessoOuErro<Stream<ResultadoTheme>>> carregarTemas() async {
-    final resultado = await RetornoResultadoPresenter<Stream<ResultadoTheme>>(
-      mostrarTempoExecucao: mostrarTempoExecucao,
-      nomeFeature: "Carregar Tema",
+  Future<ReturnSuccessOrError<Stream<ResultadoTheme>>> carregarTemas() async {
+    final resultado = await ReturnResultPresenter<Stream<ResultadoTheme>>(
+      showRuntimeMilliseconds: mostrarTempoExecucao,
+      nameFeature: "Carregar Tema",
       datasource: datasource,
-    ).retornoResultado(
-      parametros: NoParams(
-        mensagemErro: "Erro ao carregar os dados do tema",
+    ).returnResult(
+      parameters: NoParams(
+        messageError: "Erro ao carregar os dados do tema",
       ),
     );
     return resultado;

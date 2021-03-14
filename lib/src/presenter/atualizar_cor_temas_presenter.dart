@@ -1,4 +1,4 @@
-import 'package:retorno_sucesso_ou_erro_package/retorno_sucesso_ou_erro_package.dart';
+import 'package:return_success_or_error/return_success_or_error.dart';
 
 import '../../carregar_temas_package.dart';
 
@@ -11,15 +11,15 @@ class AtualizarCorTemasPresenter {
     required this.mostrarTempoExecucao,
   });
 
-  Future<RetornoSucessoOuErro<bool>> atualizarCorTemas({
+  Future<ReturnSuccessOrError<bool>> atualizarCorTemas({
     required ParametrosAtualizarCorTemas parametros,
   }) async {
-    final resultado = await RetornoResultadoPresenter<bool>(
-      mostrarTempoExecucao: mostrarTempoExecucao,
-      nomeFeature: "Atualizar Cor do Tema",
+    final resultado = await ReturnResultPresenter<bool>(
+      showRuntimeMilliseconds: mostrarTempoExecucao,
+      nameFeature: "Atualizar Cor do Tema",
       datasource: datasource,
-    ).retornoResultado(
-      parametros: parametros,
+    ).returnResult(
+      parameters: parametros,
     );
     return resultado;
   }
