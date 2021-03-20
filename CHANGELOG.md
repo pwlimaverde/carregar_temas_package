@@ -1,3 +1,7 @@
+## 1.3.4
+
+* TODO: Atualização de dependencias.
+
 ## 1.3.3
 
 * TODO: Rerfator para devido a mudança da dependencia return_success_or_error.

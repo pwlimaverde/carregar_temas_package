@@ -6,10 +6,10 @@ import 'package:return_success_or_error/return_success_or_error.dart';
 import 'package:rxdart/rxdart.dart';
 
 class FairebaseThemeDatasourceMock extends Mock
-    implements Datasource<Stream<ResultadoTheme>, NoParams> {}
+    implements Datasource<Stream<ResultadoTheme>> {}
 
 void main() {
-  late Datasource<Stream<ResultadoTheme>, NoParams> datasource;
+  late Datasource<Stream<ResultadoTheme>> datasource;
 
   setUp(() {
     datasource = FairebaseThemeDatasourceMock();

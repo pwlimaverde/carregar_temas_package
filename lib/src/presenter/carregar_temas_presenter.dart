@@ -1,9 +1,10 @@
 import 'package:return_success_or_error/return_success_or_error.dart';
 
 import '../entities/resultado_theme.dart';
+import '../utilitarios/erros_carregar_temas.dart';
 
 class CarregarTemasPresenter {
-  final Datasource<Stream<ResultadoTheme>, ParametersReturnResult> datasource;
+  final Datasource<Stream<ResultadoTheme>> datasource;
   final bool mostrarTempoExecucao;
 
   CarregarTemasPresenter({
@@ -16,9 +17,9 @@ class CarregarTemasPresenter {
       showRuntimeMilliseconds: mostrarTempoExecucao,
       nameFeature: "Carregar Tema",
       datasource: datasource,
-    ).returnResult(
+    )(
       parameters: NoParams(
-        messageError: "Erro ao carregar os dados do tema",
+        error: ErroCarregarTemas(message: "Erro ao carregar os dados do tema"),
       ),
     );
     return resultado;
