@@ -1,14 +1,15 @@
 import 'package:carregar_temas_package/src/presenter/atualizar_cor_temas_presenter.dart';
 import 'package:carregar_temas_package/src/utilitarios/Parametros.dart';
+import 'package:carregar_temas_package/src/utilitarios/erros_carregar_temas.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:return_success_or_error/return_success_or_error.dart';
 
 class FairebaseAtualizarCorTemasDatasourceMock extends Mock
-    implements Datasource<bool, ParametrosAtualizarCorTemas> {}
+    implements Datasource<bool> {}
 
 void main() {
-  late Datasource<bool, ParametrosAtualizarCorTemas> datasource;
+  late Datasource<bool> datasource;
 
   setUp(() {
     datasource = FairebaseAtualizarCorTemasDatasourceMock();
@@ -28,6 +29,7 @@ void main() {
         },
         key: KeyCorTema.primary,
         user: "uidfirebase",
+        error: ErroAtualizarCorTemas(message: "teste erro"),
       ),
     );
     print("teste result - ${await result.fold(
@@ -59,6 +61,7 @@ void main() {
         },
         key: KeyCorTema.primary,
         user: "uidfirebase",
+        error: ErroAtualizarCorTemas(message: "teste erro"),
       ),
     );
     print("teste result - ${await result.fold(
@@ -71,6 +74,6 @@ void main() {
           success: (value) => value.result,
           error: (value) => value.error,
         ),
-        isA<ErrorReturnResult>());
+        isA<ErroAtualizarCorTemas>());
   });
 }

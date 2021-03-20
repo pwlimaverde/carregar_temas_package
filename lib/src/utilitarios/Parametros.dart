@@ -20,13 +20,12 @@ class ParametrosAtualizarCorTemas implements ParametersReturnResult {
   final Map<String, int> cor;
   final KeyCorTema key;
   final String user;
+  final AppError error;
 
   ParametrosAtualizarCorTemas({
     required this.cor,
     required this.key,
     required this.user,
+    required this.error,
   });
-
-  @override
-  String get messageError => "Erro ao carregar os dados do tema";
 }

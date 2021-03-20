@@ -3,7 +3,7 @@ import 'package:return_success_or_error/return_success_or_error.dart';
 import '../../carregar_temas_package.dart';
 
 class AtualizarCorTemasPresenter {
-  final Datasource<bool, ParametrosAtualizarCorTemas> datasource;
+  final Datasource<bool> datasource;
   final bool mostrarTempoExecucao;
 
   AtualizarCorTemasPresenter({
@@ -18,7 +18,7 @@ class AtualizarCorTemasPresenter {
       showRuntimeMilliseconds: mostrarTempoExecucao,
       nameFeature: "Atualizar Cor do Tema",
       datasource: datasource,
-    ).returnResult(
+    )(
       parameters: parametros,
     );
     return resultado;
