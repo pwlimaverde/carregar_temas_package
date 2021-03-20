@@ -1,31 +1,31 @@
 import 'package:return_success_or_error/return_success_or_error.dart';
 
 class ErroCarregarTemas implements AppError {
-  final String mensagem;
-  ErroCarregarTemas({required this.mensagem});
+  String message;
+  ErroCarregarTemas({required this.message});
 
   @override
   String toString() {
-    return "ErroCarregarTemas - $mensagem";
+    return "ErroCarregarTemas - $message";
   }
 }
 
 class ErroCarregarConfiguracaoTemas implements AppError {
-  final String mensagem;
-  ErroCarregarConfiguracaoTemas({required this.mensagem});
+  String message;
+  ErroCarregarConfiguracaoTemas({required this.message});
 
   @override
   String toString() {
-    return "ErroCarregarTemas - $mensagem";
+    return "ErroCarregarTemas - $message";
   }
 }
 
 class ErroAtualizarCorTemas implements AppError {
-  final String mensagem;
-  ErroAtualizarCorTemas({required this.mensagem});
+  String message;
+  ErroAtualizarCorTemas({required this.message});
 
   @override
   String toString() {
-    return "ErroAtualizarCorTemas - $mensagem";
+    return "ErroAtualizarCorTemas - $message";
   }
 }
